@@ -297,7 +297,7 @@ class Panaroma():
             # fetches matches
             src_pts, dst_pts = tqdm(self.sift_detector(img1, img2), ncols = 100,  desc = "running SIFT: ")
 
-            opt_src_x,opt_src_y, opt_dst_x, opt_dst_y = self.ransac(src_pts, dst_pts, img1.shape[0], img2.shape[1], 10, 10)
+            opt_src_x,opt_src_y, opt_dst_x, opt_dst_y = self.ransac(src_pts, dst_pts, img1.shape[0], img2.shape[1], 10, 1000)
 
             H = self.homography_matrix(img1, img2, opt_src_x, opt_src_y, opt_dst_x, opt_dst_y)
             # H = self.dlt(src_pts, dst_pts,src_pts.shape[0],img1.shape[0], img1.shape[1])
